@@ -11,6 +11,8 @@ My portfolio site: a home page and three case studies (Good Code POS, Overwatch,
 Code samples for the patterns in the case studies are in separate repos, rebuilt from scratch with fake data. No client code is published here or there:
 
 - [uncertain-payments](https://github.com/thejoebltzr/uncertain-payments): the Good Code "uncertain is not declined" card-payment recovery, as a tested state machine.
+- [fire-exposure](https://github.com/thejoebltzr/fire-exposure) ([live demo](https://thejoebltzr.github.io/fire-exposure/)): Overwatch's forecast-keyed risk queries and map markers that never hide a policy.
+- [build-time-brands](https://github.com/thejoebltzr/build-time-brands): XStreamr's build-time brand resolution in Metro, with a CI gate against cross-brand leaks.
 
 ## Run it
 

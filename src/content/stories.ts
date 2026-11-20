@@ -448,6 +448,11 @@ const overwatch: Story = {
           body: "The upstream GeoServer stopped publishing satellite layers and the spinner never stopped. A server route now reads NASA FIRMS’ public 48-hour feeds and shows a toast on failure.",
         },
       ],
+      code: {
+        href: "https://github.com/thejoebltzr/fire-exposure",
+        label: "See the pattern in code",
+        note: "A live demo with fake data: risk that follows the forecast slider, markers that never hide a policy, and a toggle that shows the original bug.",
+      },
       figures: [
         img(
           "/stories/overwatch/web-03-wildfire-exposure-forecast.png",
@@ -721,6 +726,11 @@ const xstreamr: Story = {
           body: "Files over 20 MB use chunked upload under the API’s 30 MB cap. Sessions moved to the Keychain, with a minimum-version gate for breaking API changes.",
         },
       ],
+      code: {
+        href: "https://github.com/thejoebltzr/build-time-brands",
+        label: "See the pattern in code",
+        note: "Two fictional brands built with real Metro, plus a CI check that no bundle carries the other brand’s keys.",
+      },
     },
     {
       kind: "gallery",
