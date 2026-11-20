@@ -20,7 +20,7 @@ export const hero = {
 export const about = {
   eyebrow: "About",
   title: "Products that [hold up] in production.",
-  body: "I lead React and React Native work end to end, from offline-first POS tablets to wildfire-risk maps to multi-brand streaming apps. I build the backend piece when a feature needs it, and I run the delivery side too: planning, scoping and keeping releases on track. AI is part of how I build: it speeds up the work, and I stay accountable for every line that ships.",
+  body: "I lead React and React Native work end to end, from offline-first POS tablets to wildfire-risk maps to multi-brand streaming apps. I build the backend piece when a feature needs it, and I run the delivery side too: planning, scoping and keeping releases on track. I use AI tools where they help, under the same tests, type checks and code review as everything else I ship.",
   location: "Calabarzon, Philippines · Working remotely",
   stats: [
     { value: "9+", label: "Years shipping web and mobile" },
@@ -58,10 +58,10 @@ export const whatIDo = {
     },
     {
       title: "AI-assisted engineering",
-      role: "Every day",
+      role: "With guardrails",
       description:
-        "I use AI agents to get to working solutions faster: prototyping, refactors across a large codebase, test coverage and first-pass reviews. I set the direction, read every diff and own the result, so the speed never costs correctness.",
-      tools: "Claude Code · Cursor · Herdr · T3",
+        "AI is a tool in my workflow, not a substitute for engineering judgment. I use it for scaffolding, large mechanical refactors and first drafts of tests, and its output passes the same typed contracts, CI checks and review as any other code. Architecture, data correctness and anything that touches money I reason through and verify myself.",
+      tools: "Claude Code · Cursor · Herdr · T3 Code",
     },
     {
       title: "Project management",
