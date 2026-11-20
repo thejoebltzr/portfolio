@@ -166,3 +166,103 @@ html:not(.js) [data-reveal] {
     transition: opacity 0.6s linear;
   }
 }
+
+/* ---------- Intro loader (markup in components/BootLoader.tsx, script in layout.tsx) ---------- */
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--cream);
+  clip-path: inset(0 0 0 0);
+  /* Exit: closes to a horizontal line, like a shutter, after the contents fade. */
+  transition: clip-path 0.75s cubic-bezier(0.76, 0, 0.24, 1) 0.3s, visibility 0s linear 1.05s;
+}
+html:not(.js) .boot,
+html.no-boot .boot {
+  display: none;
+}
+html.js:not(.is-loaded) body {
+  overflow: hidden;
+}
+html.is-loaded .boot {
+  clip-path: inset(50% 0 50% 0);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.boot-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  transition: opacity 0.3s ease, transform 0.45s var(--ease);
+}
+html.is-loaded .boot-inner {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.boot-frame {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+/* The monogram: J and B start apart and slide together like two film frames meeting,
+   then J swings gently from its top serif, like a pendulum, while the page finishes loading. */
+.boot-glyph {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  fill: var(--cream);
+}
+.boot-glyph svg {
+  display: block;
+}
+.boot-j {
+  transform-origin: 98px 52px; /* top of the J's stem */
+  animation:
+    boot-j 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.1s forwards,
+    boot-swing 2.2s ease-in-out 1.3s infinite;
+}
+.boot-b {
+  animation: boot-b 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.25s forwards;
+}
+
+@keyframes boot-j {
+  from { opacity: 0; transform: translate(-16%, -10%) rotate(-10deg); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes boot-swing {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(5deg); }
+  65% { transform: rotate(-2.5deg); }
+}
+@keyframes boot-b {
+  from { opacity: 0; transform: translate(16%, 10%); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes boot-fade {
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot {
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  }
+  html.is-loaded .boot {
+    clip-path: none;
+    opacity: 0;
+  }
+  .boot-glyph {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  html.is-loaded .boot-inner {
+    transform: none;
+  }
+}

@@ -158,13 +158,16 @@
   display: none;
 }
 
+/* Radial soft mask from Figma, intersected with a bottom fade so the photo's lower edge never shows. */
 .portraitMasked {
   position: absolute;
   inset: 0;
-  mask-image: url("/images/portrait-mask.svg");
-  mask-size: 100% 100%;
-  -webkit-mask-image: url("/images/portrait-mask.svg");
-  -webkit-mask-size: 100% 100%;
+  mask-image: url("/images/portrait-mask.svg"), linear-gradient(to bottom, #000 62%, transparent 96%);
+  mask-size: 100% 100%, 100% 100%;
+  mask-composite: intersect;
+  -webkit-mask-image: url("/images/portrait-mask.svg"), linear-gradient(to bottom, #000 62%, transparent 96%);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-composite: source-in;
 }
 
 .portraitMasked img,
@@ -411,7 +414,7 @@ html:not(.js) .leader {
   /* Backdrop fades from ink to studio grey. */
   .ink {
     background: var(--ink);
-    opacity: calc(1 - var(--p) * 1.4);
+    opacity: calc(1 - var(--p) * 3);
   }
 
   .hero,
@@ -462,6 +465,13 @@ html:not(.js) .leader {
     inset: 0;
     z-index: 1;
     opacity: calc(1 - var(--p) * 2.2);
+    /* Soft side and bottom edges, so the photo melts into the backdrop as it shrinks instead of showing a cut. */
+    mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%),
+      linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%),
+      linear-gradient(to bottom, #000 70%, transparent 100%);
+    -webkit-mask-composite: source-in;
   }
 
   /* About content only exists in the zoomed-out state; scrolling back up hides it again,

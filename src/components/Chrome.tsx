@@ -50,8 +50,8 @@ export function Chrome() {
         const stageH = Math.max(vh, 560);
         const p = clamp(-r.top / Math.max(1, r.height - stageH));
         el.style.setProperty("--p", p.toFixed(4));
-        // Close-up scale: the full-figure portrait (722:1000) grown until it fills the viewport width.
-        el.style.setProperty("--s0", Math.max(1.6, window.innerWidth / (0.722 * stageH)).toFixed(4));
+        // Close-up scale: the full-figure portrait (722:1000) grown past the viewport width (25% overscan keeps its soft side edges off-screen).
+        el.style.setProperty("--s0", Math.max(1.6, (window.innerWidth * 1.25) / (0.722 * stageH)).toFixed(4));
         const stage = p > 0.62 ? "about" : "hero";
         if (el.dataset.stage !== stage) {
           el.dataset.stage = stage;

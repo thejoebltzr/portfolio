@@ -84,7 +84,7 @@ const goodCode: Story = {
   description:
     "Offline-first restaurant POS and back-office dashboard: payments that never double-charge, sync that doesn’t block service, and integrations that prove delivery.",
   meta: [
-    { label: "Role", text: "Core engineer on both apps. I also run product at rebootthefuture." },
+    { label: "Role", text: "Project Manager at rebootthefuture, promoted from core engineer. Still hands-on in both apps." },
     { label: "Platforms", text: "Android tablet, handheld and kiosk POS. Web back-office dashboard." },
     { label: "Stack", text: "React Native · Expo · TypeScript · Supabase (Postgres + Deno) · PowerSync · XState" },
     { label: "Timeline", text: "Feb 2024 — now. POS from its first month, dashboard since mid-2025." },

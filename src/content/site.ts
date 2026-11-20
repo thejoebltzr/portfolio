@@ -7,7 +7,7 @@ export const site = {
   // Fill these in to show the links. Empty values are hidden rather than linking nowhere.
   linkedinUrl: "https://www.linkedin.com/in/joe-arlo-baltazar-458895117?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   githubUrl: "https://github.com/thejoebltzr",
-  resumeUrl: "",
+  resumeUrl: "/Joe_Arlo_Baltazar_Resume.pdf",
 };
 
 export const hero = {
@@ -67,7 +67,7 @@ export const whatIDo = {
       title: "Project management",
       role: "Alongside the code",
       description:
-        "I plan and run delivery for the work I lead: writing the tickets, running sprints, sequencing releases and keeping stakeholders informed. I’ve led teams since OBPO, run product at rebootthefuture today, and hold a Postgraduate Certificate in Project Management from the Asian Institute of Management.",
+        "I plan and run delivery for the work I lead: writing the tickets, running sprints, sequencing releases and keeping stakeholders informed. I’ve led teams since OBPO, was promoted to Project Manager at rebootthefuture, and hold a Postgraduate Certificate in Project Management from the Asian Institute of Management.",
       tools:
         "Sprint planning · Release management · Stakeholder updates · Jira · Linear · MeisterTask · Asian Institute of Management",
     },
@@ -161,7 +161,7 @@ export const experience = {
   eyebrow: "Experience",
   title: "Nine years of shipping, most recently [as lead.]",
   education:
-    "Education — Postgraduate Certificate in Project Management, Asian Institute of Management (via Emeritus), completed. BS Information Technology, STI College (2013 — 2017).",
+    "Education — Postgraduate Certificate in Project Management, Asian Institute of Management, completed. BS Information Technology, STI College (2013 — 2017).",
   roles: [
     {
       dates: "Mar 2023 — now",
@@ -192,10 +192,10 @@ export const experience = {
     },
     {
       dates: "Feb 2024 — now",
-      role: "Core Engineer, POS & Dashboard",
+      role: "Project Manager · promoted from Core Engineer",
       company: "Good Code · rebootthefuture",
       description:
-        "Payments, offline sync, reports, integrations (7shifts, NowBookIt, Nory) and CI. I also run product at rebootthefuture, the team shipping Good Code: POS, kitchen routing and online ordering.",
+        "Promoted to Project Manager for the team shipping Good Code: POS, kitchen routing and online ordering. Still hands-on as core engineer on payments, offline sync, reports, integrations (7shifts, NowBookIt, Nory) and CI.",
     },
     {
       dates: "Aug 2022 — Sep 2023",
@@ -220,7 +220,7 @@ export const experience = {
       dates: "Nov 2016 — Mar 2017",
       role: "Web Developer Intern",
       company: "Pylon Partners Inc.",
-      description: "Web development internship during my final year at STI College.",
+      description: "Web development internship during my final year of college.",
     },
   ] satisfies Role[],
 };
