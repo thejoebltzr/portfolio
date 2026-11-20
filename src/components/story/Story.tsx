@@ -133,6 +133,18 @@ function Section({ section }: { section: StorySection }) {
               </div>
             ) : null}
             {section.flow ? <Flow flow={section.flow} /> : null}
+            {section.code ? (
+              <p className={s.code} data-reveal>
+                <a className={s.codeLink} href={section.code.href} target="_blank" rel="noopener noreferrer">
+                  {section.code.label}
+                  <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden>
+                    <path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  </svg>
+                  <span className="sr-only"> (GitHub, opens in a new tab)</span>
+                </a>
+                <span className={s.codeNote}>{section.code.note}</span>
+              </p>
+            ) : null}
             {section.figures ? <Figures figures={section.figures} /> : null}
           </>
         ) : null}

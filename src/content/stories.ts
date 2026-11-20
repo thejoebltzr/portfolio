@@ -34,6 +34,8 @@ export type StorySection =
       results?: { value: string; title: string; body: string }[];
       points?: Labelled[];
       flow?: { steps: FlowStep[]; outcomes: string[] };
+      /** A public repo that rebuilds this chapter's pattern (never client code). */
+      code?: { href: string; label: string; note: string };
       figures?: Figure[];
     }
   | { kind: "gallery"; eyebrow: string; title: string; aside: string; figures: Figure[] }
@@ -150,6 +152,11 @@ const goodCode: Story = {
           { label: "Status check", sub: "by our reference · up to 3 polls" },
         ],
         outcomes: ["Recorded", "Confirmed not charged", "Sent to manual check"],
+      },
+      code: {
+        href: "https://github.com/thejoebltzr/uncertain-payments",
+        label: "See the pattern in code",
+        note: "Rebuilt from scratch with a fake terminal: the state machine, crash recovery, and a test for every failure path.",
       },
       figures: [
         img(

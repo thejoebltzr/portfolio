@@ -459,6 +459,43 @@
   }
 }
 
+/* Link to the public repo that rebuilds the chapter's pattern */
+.code {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 640px;
+  margin: 0;
+}
+
+.codeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--label);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.codeLink svg {
+  transition: transform 0.25s var(--ease);
+}
+
+.codeLink:hover svg,
+.codeLink:focus-visible svg {
+  transform: translate(2px, -2px);
+}
+
+.codeNote {
+  font-size: 15px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--fg) 70%, transparent);
+}
+
 /* Figures */
 .figures {
   display: grid;
