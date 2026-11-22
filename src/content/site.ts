@@ -10,16 +10,26 @@ export const site = {
   resumeUrl: "/Joe_Arlo_Baltazar_Resume.pdf",
 };
 
+// Hero — Study C (Figma 2057:334): centered close-up, centered intro, fact bar along the bottom.
 export const hero = {
-  eyebrow: "Senior frontend & mobile engineer · Project management",
-  title: "Hello, I’m [Joe.]",
+  // Rendered as "ROLE & ROLE" with a serif italic ampersand between them.
+  roles: ["Software engineer", "Project lead"],
+  // The last character (the period) is set in the accent colour.
+  title: "[Joe] Baltazar.",
   lede: "Nine years building the parts of products people actually touch: on the web, on phones, and on the server when a feature needs it.",
-  availability: "Open to senior & lead roles",
+  primaryCta: { label: "See selected work", href: "#work" },
+  // Desktop fact bar (Study C). Phones and tablets show only `since` under the buttons (Study C1).
+  facts: [
+    { label: "Focus", value: "Full stack, end to end" },
+    { label: "Since", value: "2017 — nine years" },
+  ],
+  since: "Since 2017",
 };
 
 export const about = {
   eyebrow: "About",
-  title: "Products that [hold up] in production.",
+  // "\n" forces a line break.
+  title: "I build it,\nand I [ship it].",
   body: "I lead React and React Native work end to end, from offline-first POS tablets to wildfire-risk maps to multi-brand streaming apps. I build the backend piece when a feature needs it, and I run the delivery side too: planning, scoping and keeping releases on track. I use AI tools where they help, under the same tests, type checks and code review as everything else I ship.",
   location: "Calabarzon, Philippines · Working remotely",
   stats: [
@@ -54,7 +64,7 @@ export const whatIDo = {
       role: "When it matters",
       description:
         "Enough backend to own a feature end to end: Postgres schemas and migrations, edge functions, and integrations with outboxes and reconciliation.",
-      tools: "Postgres · Supabase · Deno · AWS · GitHub Actions · Sentry",
+      tools: "Postgres · Supabase · Deno · Docker · AWS · GitHub Actions · Sentry",
     },
     {
       title: "AI-assisted engineering",
@@ -165,43 +175,38 @@ export const experience = {
   roles: [
     {
       dates: "Mar 2023 — now",
-      role: "Software Engineer",
-      company: "NTERSOL",
-      description: "Software engineering for US-based clients. My main projects there are XStreamr and Overwatch, below.",
+      role: "Senior Engineer",
+      company: "Contract Engineering",
+      description:
+        "Long-term engagements with US-based product teams, via NTERSOL and Good Code. The platforms I lead are below.",
       clients: [
         {
           dates: "Sep 2026 — now",
           role: "Lead Engineer, Client Platforms",
-          company: "XStreamr · NTERSOL client",
+          company: "XStreamr · via NTERSOL",
           description: "Rebuilt the iOS, Android and web clients on a new API. Multi-brand builds, Stripe, CI contract checks.",
         },
         {
           dates: "Aug — Sep 2026",
           role: "Senior Engineer, Data Correctness",
-          company: "Overwatch (Web) · NTERSOL client",
+          company: "Overwatch (Web) · via NTERSOL",
           description:
             "Owned correctness across hurricane, wildfire, portfolio upload and map pins. Stabilised the end-to-end suite.",
         },
         {
           dates: "Mar 2025 — now",
           role: "Lead Mobile Engineer",
-          company: "Overwatch (Mobile) · NTERSOL client",
+          company: "Overwatch (Mobile) · via NTERSOL",
           description: "Owned architecture, maps, auth and App Store / Play releases from the first commit.",
         },
+        {
+          dates: "Feb 2024 — now",
+          role: "Project Manager · promoted from Core Engineer",
+          company: "Good Code · rebootthefuture",
+          description:
+            "Promoted to Project Manager for the team shipping Good Code: POS, kitchen routing and online ordering. Still hands-on as core engineer on payments, offline sync, reports, integrations (7shifts, NowBookIt, Nory) and CI.",
+        },
       ],
-    },
-    {
-      dates: "Feb 2024 — now",
-      role: "Project Manager · promoted from Core Engineer",
-      company: "Good Code · rebootthefuture",
-      description:
-        "Promoted to Project Manager for the team shipping Good Code: POS, kitchen routing and online ordering. Still hands-on as core engineer on payments, offline sync, reports, integrations (7shifts, NowBookIt, Nory) and CI.",
-    },
-    {
-      dates: "Aug 2022 — Sep 2023",
-      role: "Software Engineer",
-      company: "CoDev",
-      description: "Software engineering role, held alongside OBPO.",
     },
     {
       dates: "Apr 2018 — Feb 2024",
@@ -234,9 +239,9 @@ export const quotes = {
 };
 
 export const contact = {
-  eyebrow: "Hiring a senior frontend or mobile engineer?",
+  eyebrow: "Hiring a software engineer?",
   title: "Let’s [talk.]",
-  body: "Open to senior and lead roles in frontend and mobile, with backend when the product needs it. Remote-first, based in the Philippines.",
+  body: "Open to full-time software engineering and lead roles across web, mobile and backend. Remote or hybrid.",
   copyright: "© 2026 Joe Arlo Baltazar",
   colophon: "Designed in Figma · Built with Next.js",
 };

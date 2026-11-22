@@ -22,14 +22,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Joe Baltazar — Senior frontend & mobile engineer",
+  title: "Joe Baltazar — Software Engineer",
   description:
     "Nine years building the parts of products people actually touch: on the web, on phones, and on the server when a feature needs it.",
   openGraph: {
-    title: "Joe Baltazar — Senior frontend & mobile engineer",
+    title: "Joe Baltazar — Software Engineer",
     description: "React and React Native work end to end, from offline-first POS tablets to wildfire-risk maps to multi-brand streaming apps.",
     // Wide 1200×630 card so LinkedIn and other link previews show the face and headline, not a cropped torso.
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Joe Baltazar — Software your revenue can rely on" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Joe Baltazar — Hello, I’m Joe." }],
     type: "website",
   },
   twitter: {

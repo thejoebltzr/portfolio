@@ -143,4 +143,20 @@
   .rail {
     display: none;
   }
+
+  /* No pill on small screens, so the wordmark would sit on bare page text once scrolled; give the bar a backdrop. */
+  .nav {
+    transition:
+      transform 0.5s var(--ease),
+      background-color 0.3s,
+      border-color 0.3s;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav[data-solid] {
+    background: rgba(28, 27, 25, 0.72);
+    border-bottom-color: var(--cream-14);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
 }

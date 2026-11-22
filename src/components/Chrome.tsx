@@ -19,6 +19,7 @@ const clamp = (v: number) => Math.min(1, Math.max(0, v));
 export function Chrome() {
   const [active, setActive] = useState<string>("top");
   const [hidden, setHidden] = useState(false);
+  const [solid, setSolid] = useState(false);
 
   useEffect(() => {
     const pinMq = window.matchMedia(PIN_QUERY);
@@ -50,8 +51,9 @@ export function Chrome() {
         const stageH = Math.max(vh, 560);
         const p = clamp(-r.top / Math.max(1, r.height - stageH));
         el.style.setProperty("--p", p.toFixed(4));
-        // Close-up scale: the full-figure portrait (722:1000) grown past the viewport width (25% overscan keeps its soft side edges off-screen).
-        el.style.setProperty("--s0", Math.max(1.6, (window.innerWidth * 1.25) / (0.722 * stageH)).toFixed(4));
+        // Close-up scale: the full-figure portrait (722:1000) grown to exactly the viewport width, top-aligned, as in Figma 2007:209.
+        // Its soft side edges are faded in with --p in CSS, so they don't show in the close-up.
+        el.style.setProperty("--s0", Math.max(1.6, window.innerWidth / (0.722 * stageH)).toFixed(4));
         const stage = p > 0.62 ? "about" : "hero";
         if (el.dataset.stage !== stage) {
           el.dataset.stage = stage;
@@ -70,6 +72,9 @@ export function Chrome() {
       let current = sections[0]?.id ?? "top";
       for (const s of sections) if (s.getBoundingClientRect().top <= probe) current = s.id;
       setActive(current);
+
+      // Once the page has scrolled, the nav gets a backdrop (small screens only, see CSS) so it stays legible over content.
+      setSolid(y > 24);
 
       // Nav hides on scroll down and returns on scroll up.
       const dy = y - lastY;
@@ -132,7 +137,7 @@ export function Chrome() {
 
   return (
     <>
-      <header className={styles.nav} data-hidden={hidden || undefined}>
+      <header className={styles.nav} data-hidden={hidden || undefined} data-solid={solid || undefined}>
         <a className={`${styles.wordmark} serif`} href="#top" onClick={jump("top")}>
           <em>Joe</em> Baltazar
         </a>

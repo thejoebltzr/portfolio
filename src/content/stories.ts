@@ -86,7 +86,7 @@ const goodCode: Story = {
   meta: [
     { label: "Role", text: "Project Manager at rebootthefuture, promoted from core engineer. Still hands-on in both apps." },
     { label: "Platforms", text: "Android tablet, handheld and kiosk POS. Web back-office dashboard." },
-    { label: "Stack", text: "React Native · Expo · TypeScript · Supabase (Postgres + Deno) · PowerSync · XState" },
+    { label: "Stack", text: "React Native · Expo · TypeScript · Supabase (Postgres + Deno) · PowerSync · XState · Docker" },
     { label: "Timeline", text: "Feb 2024 — now. POS from its first month, dashboard since mid-2025." },
   ],
   hero: img(
@@ -563,7 +563,7 @@ const xstreamr: Story = {
   meta: [
     { label: "Role", text: "Lead engineer for the client platforms: iOS, Android and web." },
     { label: "Platforms", text: "Two brands, XStreamr Sports and XStreamr, on iOS, Android and web from two codebases." },
-    { label: "Stack", text: "React Native 0.86 · Angular 21 · TypeScript · Stripe · Agora · Mux · AWS" },
+    { label: "Stack", text: "React Native 0.86 · Angular 21 · TypeScript · Stripe · Agora · Mux · AWS · Docker" },
     { label: "Timeline", text: "Sep 2026 — now. About 620 commits across both apps in eight weeks." },
   ],
   hero: img(

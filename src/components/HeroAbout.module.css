@@ -15,6 +15,8 @@
   display: none;
 }
 
+/* Hero — phones and tablets follow Study C1 (Figma 2067:342 mobile, 2070:364 tablet): centered intro,
+   full-width thumb buttons, a quiet "Since 2017" line. Desktop follows Study C (2057:334) with the fact bar. */
 .hero {
   position: relative;
   height: 100svh;
@@ -24,9 +26,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 0 20px 48px;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px max(34px, env(safe-area-inset-bottom));
+  text-align: center;
 }
 
 .heroImage {
@@ -47,29 +50,36 @@
   }
 }
 
+.fades {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .fades span {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-/* Fade — bottom / left / top, from 2007:211–213 */
+/* Darkens the corners so the centered face carries the frame. */
+.vignette {
+  top: 0;
+  bottom: 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(20, 20, 18, 0) 35%, rgba(20, 20, 18, 0.7) 100%);
+}
+
+/* Starts high (a quarter of the way down) so the centered copy reads over the sweater. */
 .fadeBottom {
   bottom: 0;
-  height: 62%;
+  height: 76%;
   background: linear-gradient(
     to bottom,
     rgba(20, 20, 18, 0) 0%,
-    rgba(20, 20, 18, 0.55) 55%,
-    rgba(20, 20, 18, 0.94) 100%
+    rgba(20, 20, 18, 0.55) 35%,
+    rgba(20, 20, 18, 0.88) 65%,
+    rgba(20, 20, 18, 0.97) 100%
   );
-}
-
-.fadeLeft {
-  top: 0;
-  bottom: 0;
-  width: 62.5%;
-  background: linear-gradient(to right, rgba(20, 20, 18, 0.55), rgba(20, 20, 18, 0));
 }
 
 .fadeTop {
@@ -83,54 +93,188 @@
   );
 }
 
+/* Spacing follows C1 mobile: 14px inside the intro, 28px (14 + 14) before the buttons and the meta line. */
 .intro {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 720px;
 }
 
+/* "SOFTWARE ENGINEER & PROJECT LEAD" with a serif italic ampersand in the accent colour. */
 .heroEyebrow {
-  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 10px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.005em;
-  color: var(--cream-85);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-75);
 }
 
+.amp {
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--vermilion);
+}
+
+/* 76px on a 390px phone, 112px on a 1024px tablet. */
 .heroTitle {
-  font-size: clamp(60px, 12.22vw, 176px);
-  line-height: 0.88;
+  font-size: clamp(56px, 19.5vw, 112px);
+  line-height: 0.86;
   letter-spacing: -0.02em;
   color: var(--cream);
+  white-space: nowrap;
+}
+
+.heroDot {
+  color: var(--vermilion);
 }
 
 .lede {
-  max-width: 560px;
-  font-size: clamp(17px, 1.39vw, 20px);
-  line-height: 1.45;
+  max-width: 700px;
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--cream-80);
+  text-wrap: balance;
 }
 
-.availability {
-  position: relative;
-  z-index: 1;
-  order: -1;
+/* C1 mobile: stacked full-width thumb buttons. */
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.since {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(244, 241, 235, 0.55);
+}
+
+.iconDesktop {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .heroActions a {
+    justify-content: center;
+    height: 56px;
+    padding: 0 24px;
+    font-size: 16px;
+  }
+
+  .heroActions .ghost {
+    background: rgba(28, 27, 24, 0.42);
+    border-color: rgba(244, 241, 235, 0.32);
+  }
+}
+
+/* C1 tablet: wider intro, paired pill buttons side by side. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .hero {
+    padding-bottom: max(56px, env(safe-area-inset-bottom));
+  }
+
+  .intro {
+    gap: 16px;
+    max-width: 640px;
+  }
+
+  .heroEyebrow {
+    gap: 4px 12px;
+    font-size: 12px;
+  }
+
+  .amp {
+    font-size: 26px;
+  }
+
+  .lede {
+    font-size: 18px;
+  }
+
+  .heroActions {
+    flex-direction: row;
+    max-width: 560px;
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .heroActions a {
+    flex: 1;
+    height: 60px;
+  }
+
+  .since {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+}
+
+.ghost {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 9px 16px 9px 14px;
+  gap: 8px;
+  padding: 12px 17px 12px 21px;
   border-radius: 999px;
+  border: 1px solid rgba(244, 241, 235, 0.3);
+  color: var(--cream);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.ghost:hover {
   background: var(--cream-10);
-  border: 1px solid rgba(244, 241, 235, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  font-size: 13px;
+  border-color: rgba(244, 241, 235, 0.5);
+}
+
+/* Fact bar: Focus · Since · Next. Desktop only; phones and tablets show the "Since" line instead. */
+.facts {
+  display: none;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(244, 241, 235, 0.15);
+  text-align: left;
+}
+
+.fact dt {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 235, 0.5);
+}
+
+.fact dd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 14px;
   font-weight: 500;
   color: var(--cream-90);
 }
 
-.scrollCue {
+.factNext {
   display: none;
 }
 
@@ -170,6 +314,16 @@
   -webkit-mask-composite: source-in;
 }
 
+/* Mobile: the photo sits inside the grey section, so fade its top edge too (the radial mask alone leaves ~30% there). */
+@media (max-width: 1023px) {
+  .portraitMasked {
+    mask-image: url("/images/portrait-mask.svg"),
+      linear-gradient(to bottom, transparent 0%, #000 12%, #000 62%, transparent 96%);
+    -webkit-mask-image: url("/images/portrait-mask.svg"),
+      linear-gradient(to bottom, transparent 0%, #000 12%, #000 62%, transparent 96%);
+  }
+}
+
 .portraitMasked img,
 .portraitBare img {
   object-fit: cover;
@@ -198,12 +352,6 @@
   color: var(--cream-85);
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
 .primary {
   display: inline-flex;
   align-items: center;
@@ -220,13 +368,6 @@
 
 .primary:hover {
   transform: translateY(-1px);
-}
-
-.textLink {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--cream-90);
-  text-underline-offset: 3px;
 }
 
 /* Stat Callout (2007:202): leader line points toward the figure */
@@ -297,50 +438,81 @@ html:not(.js) .leader {
 @media (min-width: 1024px) {
   .hero {
     height: 100vh;
+    height: 100svh;
     min-height: 560px;
   }
 
   .hero {
-    display: block;
-    padding: 0;
+    padding: 0 5.556vw clamp(28px, 5svh, 48px);
+    gap: clamp(28px, 4svh, 40px);
   }
 
+  /* Study C: buttons sit side by side at their natural width; the fact bar replaces the "Since" line. */
   .intro {
-    position: absolute;
-    left: 5.556vw;
-    bottom: 96px;
-    max-width: 760px;
+    gap: 22px;
   }
 
-  .availability {
-    position: absolute;
-    right: 5.556vw;
-    bottom: 208px;
+  .heroEyebrow {
+    gap: 4px 12px;
+    font-size: 12px;
   }
 
-  .scrollCue {
-    position: absolute;
-    right: 5.556vw;
-    bottom: 96px;
+  .amp {
+    font-size: 26px;
+  }
+
+  .lede {
+    font-size: clamp(16px, 1.32vw, 19px);
+  }
+
+  .heroActions {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    margin-top: 0;
+  }
+
+  .since,
+  .iconCompact {
+    display: none;
+  }
+
+  .iconDesktop {
+    display: block;
+  }
+
+  /* Cap by height too, so shorter viewports (iPad landscape, small laptops) keep the face clear of the copy. */
+  .heroTitle {
+    font-size: clamp(60px, min(10.28vw, 16svh), 148px);
+  }
+
+  .fact dd {
+    font-size: 15px;
+  }
+
+  .facts {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--cream-70);
+    justify-content: space-between;
+    padding-top: 20px;
   }
 
-  .scrollCue i {
-    width: 1px;
-    height: 56px;
-    background: rgba(244, 241, 235, 0.5);
+  .facts {
+    gap: 24px;
+  }
+
+  .factNext {
+    display: block;
+    text-align: right;
+  }
+
+  .factNext dd {
+    justify-content: flex-end;
   }
 
   .about {
     display: block;
     height: 100vh;
+    height: 100svh;
     min-height: 860px;
     padding: 0;
     overflow: hidden;
@@ -396,6 +568,7 @@ html:not(.js) .leader {
     position: sticky;
     top: 0;
     height: 100vh;
+    height: 100svh;
     min-height: 560px;
     overflow: hidden;
   }
@@ -435,8 +608,7 @@ html:not(.js) .leader {
   }
 
   .intro,
-  .availability,
-  .scrollCue {
+  .facts {
     opacity: calc(1 - var(--p) * 3);
     transform: translateY(calc(var(--p) * -60px));
   }
@@ -447,7 +619,7 @@ html:not(.js) .leader {
   }
 
   .intro,
-  .availability {
+  .facts {
     pointer-events: auto;
   }
 
@@ -465,17 +637,19 @@ html:not(.js) .leader {
     inset: 0;
     z-index: 1;
     opacity: calc(1 - var(--p) * 2.2);
-    /* Soft side and bottom edges, so the photo melts into the backdrop as it shrinks instead of showing a cut. */
-    mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%),
+    /* Soft side and bottom edges, so the photo melts into the backdrop as it shrinks instead of showing a cut.
+       The side feather grows with --p: none in the full-bleed close-up, 10% once it has zoomed out. */
+    --feather: calc(min(1, var(--p) * 4) * 10%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 var(--feather), #000 calc(100% - var(--feather)), transparent 100%),
       linear-gradient(to bottom, #000 70%, transparent 100%);
     mask-composite: intersect;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%),
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 var(--feather), #000 calc(100% - var(--feather)), transparent 100%),
       linear-gradient(to bottom, #000 70%, transparent 100%);
     -webkit-mask-composite: source-in;
   }
 
   /* About content only exists in the zoomed-out state; scrolling back up hides it again,
-     so the hero keeps the Figma layout (availability pill and scroll cue on their own, bottom right). */
+     so the hero keeps the Study C layout. */
   .aboutCopy,
   .location,
   .callouts {
@@ -493,5 +667,62 @@ html:not(.js) .leader {
 
   .callouts {
     z-index: 3;
+  }
+}
+
+/* ---------- Touch tablets up to iPad Pro landscape (1024–1366px): hero uses Study C1 tablet, not Study C ----------
+   Width alone can't tell an iPad from a laptop, so this keys off a coarse pointer with no hover. */
+
+@media (min-width: 1024px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
+  .hero {
+    padding-bottom: max(56px, env(safe-area-inset-bottom));
+  }
+
+  .intro {
+    gap: 16px;
+    max-width: 640px;
+  }
+
+  .heroTitle {
+    font-size: clamp(60px, 16svh, 112px);
+  }
+
+  .lede {
+    font-size: 18px;
+  }
+
+  .heroActions {
+    width: 100%;
+    max-width: 560px;
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .heroActions a {
+    flex: 1;
+    justify-content: center;
+    height: 60px;
+    padding: 0 24px;
+    font-size: 16px;
+  }
+
+  .heroActions .ghost {
+    background: rgba(28, 27, 24, 0.42);
+    border-color: rgba(244, 241, 235, 0.32);
+  }
+
+  .since {
+    display: block;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  .iconCompact {
+    display: block;
+  }
+
+  .iconDesktop,
+  .facts {
+    display: none;
   }
 }

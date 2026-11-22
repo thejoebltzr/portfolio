@@ -696,6 +696,23 @@
   text-underline-offset: 3px;
 }
 
+/* Phones: full-width email button with LinkedIn and GitHub stacked under it, as in Figma 2035:396. */
+@media (max-width: 599px) {
+  .contactCopy {
+    align-items: stretch;
+  }
+
+  .contactActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .emailButton {
+    align-self: stretch;
+  }
+}
+
 .footer {
   display: flex;
   flex-direction: column;
