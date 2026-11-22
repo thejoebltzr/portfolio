@@ -60,8 +60,8 @@ export function StoryChrome({ accent }: { accent: string }) {
     <>
       <div ref={barRef} className={styles.progress} style={{ background: accent }} aria-hidden />
       <header className={chrome.nav} data-hidden={hidden || undefined}>
-        <Link className={`${chrome.wordmark} serif`} href="/">
-          <em>Joe</em> Baltazar
+        <Link className={chrome.wordmark} href="/" aria-label="Joe Baltazar, home">
+          <Image src="/logo.svg" alt="" width={40} height={40} priority />
         </Link>
         <ul className={chrome.pill}>
           {navItems.map((item) => (

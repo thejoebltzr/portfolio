@@ -138,8 +138,8 @@ export function Chrome() {
   return (
     <>
       <header className={styles.nav} data-hidden={hidden || undefined} data-solid={solid || undefined}>
-        <a className={`${styles.wordmark} serif`} href="#top" onClick={jump("top")}>
-          <em>Joe</em> Baltazar
+        <a className={styles.wordmark} href="#top" onClick={jump("top")} aria-label="Joe Baltazar, back to top">
+          <Image src="/logo.svg" alt="" width={40} height={40} priority />
         </a>
         <NavPill active={activeNav} onJump={jump} />
         <a className={styles.cta} href="#contact" onClick={jump("contact")}>
