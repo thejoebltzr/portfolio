@@ -30,13 +30,13 @@ export const about = {
   eyebrow: "About",
   // "\n" forces a line break.
   title: "I build it,\nand I [ship it].",
-  body: "I lead React and React Native work end to end, from offline-first POS tablets to wildfire-risk maps to multi-brand streaming apps. I build the backend piece when a feature needs it, and I run the delivery side too: planning, scoping and keeping releases on track. I use AI tools where they help, under the same tests, type checks and code review as everything else I ship.",
+  body: "I lead product engineering end to end, from offline-first POS tablets to wildfire-risk maps to multi-brand streaming apps. I build the backend piece when a feature needs it, and I run the delivery side too: planning, scoping and keeping releases on track. I use AI tools where they help, under the same tests, type checks and code review as everything else I ship.",
   location: "Calabarzon, Philippines · Working remotely",
   stats: [
     { value: "9+", label: "Years shipping web and mobile" },
     { value: "3", label: "Platforms in production that I lead or co-lead" },
     { value: "2,275+", label: "Commits to one restaurant POS and its dashboard" },
-    { value: "0.71 → 0.86", label: "React Native, upgraded in place without a delivery freeze" },
+    { value: "2,900+", label: "Records kept through an OAuth migration" },
   ],
 };
 
